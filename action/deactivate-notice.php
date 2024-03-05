@@ -1,8 +1,8 @@
 <?php
 
-namespace PluginCritic_Change_Administration_Email\Action;
+namespace Plugin_Critic_Change_Administration_Email\Action;
 
-use PluginCritic_Change_Administration_Email\Plugin;
+use Plugin_Critic_Change_Administration_Email\Plugin;
 
 if (!defined('ABSPATH')) {
     header("HTTP/1.0 404 Not Found");
@@ -33,29 +33,29 @@ class Deactivate_Notice {
 
         // Based on https://core.trac.wordpress.org/browser/tags/6.4/src/wp-admin/includes/class-wp-plugins-list-table.php#L798
         if (current_user_can('manage_network_plugins')) {
-            $deactivate_link = sprintf(
-                ' <a href="%s" aria-label="%s">%s</a>',
-                wp_nonce_url('plugins.php?action=deactivate&amp;plugin=' . urlencode($plugin_basename), 'deactivate-plugin_' . $plugin_basename),
-                /* translators: %s: Plugin name. */
-                esc_attr(sprintf(_x('Network Deactivate %s', 'plugin'), $plugin_name)),
-                __('Network Deactivate', 'plugin-critic')
-            );
+            $deactivate_link_label = __( 'Network Deactivate', 'plugin-critic-change-administration-email' );
+            /* translators: %s: Plugin name. */
+            $deactivate_link_description = __( 'Network Deactivate %s', 'plugin-critic-change-administration-email' );
         // Based on https://core.trac.wordpress.org/browser/tags/6.4/src/wp-admin/includes/class-wp-plugins-list-table.php#L848
         } else if (current_user_can('deactivate_plugin', $plugin_basename)) {
-            $deactivate_link = sprintf(
-                ' <a href="%s" aria-label="%s">%s</a>',
-                wp_nonce_url('plugins.php?action=deactivate&amp;plugin=' . urlencode($plugin_basename), 'deactivate-plugin_' . $plugin_basename),
-                /* translators: %s: Plugin name. */
-                esc_attr(sprintf(_x('Deactivate %s', 'plugin'), $plugin_name)),
-                __('Deactivate', 'plugin-critic')
-            );
+            $deactivate_link_label = __( 'Deactivate', 'plugin-critic-change-administration-email' );
+            /* translators: %s: Plugin name. */
+            $deactivate_link_description = __( 'Deactivate %s', 'plugin-critic-change-administration-email' );
         } else {
             return;
         }
 
+        $deactivate_link = sprintf(
+            ' <a href="%s" aria-label="%s">%s</a>',
+            esc_url( wp_nonce_url( 'plugins.php?action=deactivate&amp;plugin=' . urlencode( $plugin_basename ), 'deactivate-plugin_' . $plugin_basename ) ),
+            /* translators: %s: Plugin name. */
+            esc_attr( $deactivate_link_description ),
+            esc_attr( $deactivate_link_label )
+        );
+
         $deactivate_message = sprintf(
-        /* translators: %s: Plugin name. */
-            __('You should deactivate then delete the "%s" plugin as soon as you are finished using it.', 'plugin-critic'),
+            /* translators: %s: Plugin name. */
+            __( 'You should deactivate then delete the "%s" plugin as soon as you are finished using it.', 'plugin-critic-change-administration-email' ),
             $plugin_name
         );
 

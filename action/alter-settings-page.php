@@ -1,6 +1,6 @@
 <?php
 
-namespace PluginCritic_Change_Administration_Email\Action;
+namespace Plugin_Critic_Change_Administration_Email\Action;
 
 if (!defined('ABSPATH')) {
     header("HTTP/1.0 404 Not Found");
@@ -66,34 +66,43 @@ class Alter_Settings_Page {
         $adminhash = $this->get_adminhash();
 
         // Based on https://core.trac.wordpress.org/browser/tags/6.4/src/wp-admin/includes/misc.php#L1523
-        $confirm_url = esc_url( self_admin_url( 'options.php?adminhash=' . $adminhash['hash'] ) );
+        $confirm_url = self_admin_url( 'options.php?adminhash=' . $adminhash['hash'] );
 
         $pending_admin_email_message = sprintf(
-        /* translators: %s: New admin email. */
-            __( 'Confirm pending change of the admin email to %s?', 'plugin-critic' ),
-            '<code>' . esc_html( $adminhash['newemail'] ) . '</code>'
+            /* translators: %s: New admin email. */
+            esc_html__( 'Confirm pending change of the admin email to %s?', 'plugin-critic-change-administration-email' ),
+            '<code>' . esc_attr( $adminhash['newemail'] ) . '</code>'
         );
 
         $pending_admin_email_message .= sprintf(
-            ' <a id="plugincritic-confirm-admin-email" href="%1$s">%2$s</a>',
-            $confirm_url,
-            __( 'Confirm Immediately', 'plugin-critic' )
+            ' <a id="plugin-critic-confirm-admin-email-link" href="%1$s">%2$s</a>',
+            esc_url( $confirm_url ),
+            esc_html__( 'Confirm Immediately', 'plugin-critic-change-administration-email' )
         );
 
         // @TODO: add fallback for WP < 6.4.0 that does not support wp_get_admin_notice
-        $notice = wp_kses_post( wp_get_admin_notice( $pending_admin_email_message,
+        $notice_html = wp_get_admin_notice( $pending_admin_email_message,
             [
                 'type' => 'warning',
                 'additional_classes' => array( 'inline', 'updated' )
             ]
-        ) );
+        );
+
+
+        $confirmation_message = sprintf(
+            /* translators: %s: New admin email. */
+            esc_html__('Are you sure you want to immediately confirm the admin email: %s?', 'plugin-critic-change-administration-email' ),
+            esc_attr( $adminhash['newemail'] )
+        );
+
         ?>
+        <div style="display: none;" id="plugin-critic-confirm-admin-email-notice"><?php echo wp_kses_post( $notice_html ); ?></div>
         <script>
             jQuery().ready(function() {
-                let confirm_link = jQuery('<?php echo $notice; ?>');
-                jQuery("#new-admin-email-description").parent().append( confirm_link );
-                jQuery('#plugincritic-confirm-admin-email').on( 'click', function () {
-                    return confirm( '<?php echo __( 'Are you sure you want to immediately confirm the admin email "' . esc_attr( $adminhash['newemail'] ) . '"?' ); ?>' );
+                let confirm_link = jQuery('#plugin-critic-confirm-admin-email-notice div');
+                jQuery('#new-admin-email-description').parent().append( confirm_link );
+                jQuery('#plugin-critic-confirm-admin-email-link').on( 'click', function () {
+                    return confirm( "<?php echo esc_js( $confirmation_message ); ?>" );
                 });
             });
         </script>

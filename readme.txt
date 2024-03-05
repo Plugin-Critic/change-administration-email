@@ -1,6 +1,6 @@
 === Change Administration Email ===
 Contributors: plugincritic, sputala
-Donate link: https://example.com/
+Donate link: https://plugincritic.com
 Tags: administration, settings, developer tools, email, rollback
 Requires at least: 6.4
 Tested up to: 6.4
@@ -18,7 +18,7 @@ This plugin solves the problem where the confirmation email is not being sent (o
 
 Site administrators are provided a link to confirm the new email address directly on the General Settings page.
 
-Submit any support requests on <https://plugincritic.com>
+Submit any support requests on <https://plugincritic.com/contact/>
 
 == Installation ==
 
@@ -32,7 +32,7 @@ Because 7 is deprecated and I wanted to use match().
 
 = Why is the minimum WordPress version 6.4? =
 
-Because the plugin uses core functions to display notices that were added in version 6.4. If you need support for an older version of WordPress let me know at <https://plugincritic.com>.
+Because the plugin uses core functions to display notices that were added in version 6.4. If you need support for an older version of WordPress let me know at <https://plugincritic.com/contact/>.
 
 == Screenshots ==
 
