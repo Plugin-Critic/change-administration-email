@@ -70,14 +70,14 @@ class Alter_Settings_Page {
 
         $pending_admin_email_message = sprintf(
             /* translators: %s: New admin email. */
-            esc_html__( 'Confirm pending change of the admin email to %s?', 'plugin-critic-change-administration-email' ),
+            esc_html__( 'Confirm pending change of the admin email to %s?', 'change-administration-email' ),
             '<code>' . esc_attr( $adminhash['newemail'] ) . '</code>'
         );
 
         $pending_admin_email_message .= sprintf(
             ' <a id="plugin-critic-confirm-admin-email-link" href="%1$s">%2$s</a>',
             esc_url( $confirm_url ),
-            esc_html__( 'Confirm Immediately', 'plugin-critic-change-administration-email' )
+            esc_html__( 'Confirm Immediately', 'change-administration-email' )
         );
 
         // @TODO: add fallback for WP < 6.4.0 that does not support wp_get_admin_notice
@@ -91,7 +91,7 @@ class Alter_Settings_Page {
 
         $confirmation_message = sprintf(
             /* translators: %s: New admin email. */
-            esc_html__('Are you sure you want to immediately confirm the admin email: %s?', 'plugin-critic-change-administration-email' ),
+            esc_html__('Are you sure you want to immediately confirm the admin email: %s?', 'change-administration-email' ),
             esc_attr( $adminhash['newemail'] )
         );
 
