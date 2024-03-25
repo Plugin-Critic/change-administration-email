@@ -1,6 +1,6 @@
 <?php
 
-namespace Plugin_Critic_Change_Administration_Email\Action;
+namespace Change_Administration_Email\Action;
 
 if (!defined('ABSPATH')) {
     header("HTTP/1.0 404 Not Found");
