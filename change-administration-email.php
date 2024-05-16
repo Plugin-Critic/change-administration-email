@@ -4,7 +4,7 @@ Plugin Name: Change Administration Email
 Plugin URI: https://plugincritic.com/plugin/change-administration-email/
 Description: Change the Site's Administration Email Address on the General Settings page without the confirmation email. <strong>*** Delete this plugin after using it. ***</strong>
 Author: Plugin Critic
-Version: 1.0
+Version: 1.0.2
 Requires at least: 6.4
 Requires PHP: 8.0
 Author URI: https://plugincritic.com

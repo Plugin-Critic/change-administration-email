@@ -1,10 +1,10 @@
 === Change Administration Email ===
 Contributors: plugincritic, sputala
-Donate link: https://plugincritic.com
-Tags: administration, settings, developer tools, email, rollback
+Donate link: https://plugincritic.com/donate
+Tags: administration, settings, developer tools, email
 Requires at least: 6.4
 Tested up to: 6.4
-Stable tag: 1.0
+Stable tag: 1.0.2
 Requires PHP: 8.0
 License: GPLv2 or later
 
@@ -12,13 +12,13 @@ Change the Site's Administration Email Address on the General Settings page with
 
 == Description ==
 
-Having trouble changing or confirming your Administration Email Address?
+Having trouble changing or confirming your General Settings Administration Email Address?
 
-This plugin solves the problem where the confirmation email is not being sent (or delivered) making it impossible to confirm a new admin email.
+A second notice with "Confirm Immediately" is added to update the primary site email without needing to click the confirmation link in the email sent from WordPress.
 
-Site administrators are provided a link to confirm the new email address directly on the General Settings page.
+https://youtu.be/182EOHmawV8
 
-Submit any support requests on <https://plugincritic.com/contact/>
+Submit any support requests to <https://plugincritic.com/contact/>
 
 == Installation ==
 
@@ -36,15 +36,32 @@ Because the plugin uses core functions to display notices that were added in ver
 
 == Screenshots ==
 
-1. A second notice is added below Administration Email Address which provides a link to confirm the new email address
+1. Click "Confirm Immediately" to immediately change the Administration Email
 
 == Changelog ==
+
+= 1.0.2 =
+*Release Date - 04 April 2024
+
+* Correct directory location of screenshot images
+* Updated YouTube video link
+
+= 1.0.1 =
+*Release Date - 29 March 2024*
+
+* Correct error in the namespace
+* Add YouTube video to description
 
 = 1.0 =
 * Initial release of the plugin
 
 == Upgrade Notice ==
 
+= 1.0.2 =
+Optional update, New YouTube video link and screenshots on WP Plugins page
+
+= 1.0.1 =
+Fixes a fatal php error for early downloads due to a wrong Namespace
+
 = 1.0 =
 Initial release of the plugin
-
