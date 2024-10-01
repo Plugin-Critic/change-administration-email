@@ -3,8 +3,8 @@ Contributors: plugincritic, sputala
 Donate link: https://plugincritic.com/donate
 Tags: administration, settings, developer tools, email
 Requires at least: 6.4
-Tested up to: 6.4
-Stable tag: 1.0.2
+Tested up to: 6.6
+Stable tag: 1.0.3
 Requires PHP: 8.0
 License: GPLv2 or later
 
@@ -40,6 +40,11 @@ Because the plugin uses core functions to display notices that were added in ver
 
 == Changelog ==
 
+= 1.0.3 =
+*Release Date - 01 October 2024
+
+* Confirmed working with WordPress 6.6
+
 = 1.0.2 =
 *Release Date - 04 April 2024
 
@@ -56,6 +61,9 @@ Because the plugin uses core functions to display notices that were added in ver
 * Initial release of the plugin
 
 == Upgrade Notice ==
+
+= 1.0.3 =
+Optional update, Confirmed working with WordPress 6.6
 
 = 1.0.2 =
 Optional update, New YouTube video link and screenshots on WP Plugins page
